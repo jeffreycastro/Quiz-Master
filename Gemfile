@@ -36,6 +36,7 @@ group :development, :test do
   gem 'pry'
 
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -52,4 +53,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Forms
 gem 'simple_form'
-gem 'nested_form', github: 'ryanb/nested_form'
+
+# ERB to haml
+gem "haml-rails", "~> 0.9"
