@@ -2,13 +2,22 @@
   = f.error_notification
 
   .field
-    = f.input :name
+    = f.input :name, label: "Exam Name"
+  %br/
 
   = f.fields_for :exam_items do |ei|
     .field
       = ei.input :question, label: "Question"
       = ei.link_to_remove do
-        = "Delete"
+        = "Delete question"
+      %br/
+      = ei.label "Answers", required: true
+      = ei.fields_for :answers do |a|
+        = a.input :content, label: false
+        = a.link_to_remove do
+          = "Delete answer"
+      = ei.link_to_add "Add new answer", :answers
+      %hr
 
   = f.link_to_add "Add new question", :exam_items
 

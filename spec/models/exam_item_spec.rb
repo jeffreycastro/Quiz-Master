@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe ExamItem, type: :model do
   context "associations" do
     it { should belong_to(:exam) }
+    it { should have_many(:answers) }
+    it { should accept_nested_attributes_for(:answers) }
   end
 
   context "validation" do

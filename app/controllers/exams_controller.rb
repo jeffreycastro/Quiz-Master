@@ -75,7 +75,13 @@ class ExamsController < ApplicationController
         :id,
         :exam_id,
         :question,
-        :_destroy]
+        :_destroy,
+          answers_attributes: [
+          :id,
+          :exam_item_id,
+          :content,
+          :_destroy]
+        ]
       )
     end
 end
