@@ -4,6 +4,12 @@
   %b Name:
   = @exam.name
 
+%p
+  %b Questions:
+  %ol{type: "1"}
+    - @exam.exam_items.each do |ei|
+      %li= ei.question
+
 = link_to 'Edit', edit_exam_path(@exam)
 \|
 = link_to 'Back', exams_path

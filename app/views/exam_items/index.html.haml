@@ -1,0 +1,21 @@
+%h1 Listing exam_items
+
+%table
+  %thead
+    %tr
+      %th Exam
+      %th Question
+      %th
+      %th
+      %th
+
+  %tbody
+    - @exam_items.each do |exam_item|
+      %tr
+        %td= exam_item.exam.name
+        %td= exam_item.question
+        %td= link_to 'Show', exam_item
+        %td= link_to 'Edit', edit_exam_item_path(exam_item)
+        %td= link_to 'Destroy', exam_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
