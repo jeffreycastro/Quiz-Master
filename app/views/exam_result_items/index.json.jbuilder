@@ -1,0 +1,1 @@
+json.array! @exam_result_items, partial: 'exam_result_items/exam_result_item', as: :exam_result_item

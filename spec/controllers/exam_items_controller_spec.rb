@@ -24,11 +24,17 @@ RSpec.describe ExamItemsController, type: :controller do
   # ExamItem. As you add validations to ExamItem, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { question: "Question content" }
+    { 
+      question: "Question content",
+      seq_num: 1
+    }
   }
 
   let(:invalid_attributes) {
-    { question: "" }
+    { 
+      question: "",
+      seq_num: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session

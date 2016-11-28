@@ -1,0 +1,19 @@
+%h1 Listing exam_result_items
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @exam_result_items.each do |exam_result_item|
+      %tr
+        %td= link_to 'Show', exam_result_item
+        %td= link_to 'Edit', edit_exam_result_item_path(exam_result_item)
+        %td= link_to 'Destroy', exam_result_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Exam result item', new_exam_result_item_path

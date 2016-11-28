@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125053707) do
+ActiveRecord::Schema.define(version: 20161128081040) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -25,7 +25,28 @@ ActiveRecord::Schema.define(version: 20161125053707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "exam_id"
+    t.integer  "seq_num"
     t.index ["exam_id"], name: "index_exam_items_on_exam_id"
+  end
+
+  create_table "exam_result_items", force: :cascade do |t|
+    t.integer  "exam_result_id"
+    t.integer  "exam_item_id"
+    t.integer  "seq_num"
+    t.text     "answer"
+    t.boolean  "is_correct",     default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["exam_item_id"], name: "index_exam_result_items_on_exam_item_id"
+    t.index ["exam_result_id"], name: "index_exam_result_items_on_exam_result_id"
+  end
+
+  create_table "exam_results", force: :cascade do |t|
+    t.integer  "exam_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.decimal  "score",      default: "0.0"
+    t.index ["exam_id"], name: "index_exam_results_on_exam_id"
   end
 
   create_table "exams", force: :cascade do |t|

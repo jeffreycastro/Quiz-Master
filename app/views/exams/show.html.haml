@@ -12,9 +12,9 @@
         %th Answers
 
     %tbody
-      - @exam.exam_items.each_with_index do |ei, index|
+      - @exam.exam_items.each do |ei|
         %tr
-          %td= index += 1
+          %td= ei.seq_num
           %td= ei.question
           %td= possible_answers_display(ei).html_safe
 

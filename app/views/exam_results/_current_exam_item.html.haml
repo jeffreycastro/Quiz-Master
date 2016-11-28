@@ -1,0 +1,16 @@
+- if question
+  %h2
+    = question.exam_item.question
+
+  = simple_form_for(question, url: submit_answer_exam_result_item_path(question, exam_result: exam_result), method: :put, html: { id: "question_form" }, remote: true) do |f|
+    %h3
+      .field
+        = f.input :answer, as: :string, label: 'Your Answer'
+    #submit_answer_btn
+      .actions
+        = f.button :submit, "Save"
+
+- else
+  = "Exam Finished"
+  %br/
+  = "Your score: #{exam_result.score.to_i} / #{exam_result.total_score}"

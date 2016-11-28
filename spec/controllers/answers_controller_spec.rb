@@ -38,7 +38,7 @@ RSpec.describe AnswersController, type: :controller do
 
   before(:each) do
     exam = Exam.create!(name: "Exam name")
-    exam_item = exam.exam_items.create!(question: "Q1")
+    exam_item = exam.exam_items.create!(question: "Q1", seq_num: 1)
     valid_attributes.merge!(exam_item_id: exam_item.id)
   end
 

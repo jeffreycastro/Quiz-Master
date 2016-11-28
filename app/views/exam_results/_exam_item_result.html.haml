@@ -1,0 +1,9 @@
+#exam_item_result
+  - if correct
+    = "Correct!"
+  - else
+    = "Wrong!"
+
+#next_question_link
+  %hr
+  = link_to 'Next Question', next_question_exam_result_item_path(exam_result_item), remote: true

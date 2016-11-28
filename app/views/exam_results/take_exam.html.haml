@@ -1,0 +1,8 @@
+= "Exam: #{@exam.name}"
+%br/
+
+#current_exam_item
+  = render partial: 'current_exam_item', locals: { question: @question, exam_result: @exam_result }
+
+%br/
+#exam_item_result
