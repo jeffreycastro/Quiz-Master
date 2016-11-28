@@ -58,3 +58,6 @@ gem 'nested_form', github: 'ryanb/nested_form'
 
 # ERB to haml
 gem "haml-rails", "~> 0.9"
+
+# Styling
+gem 'bootstrap'

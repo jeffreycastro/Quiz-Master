@@ -1,16 +1,26 @@
 - if question
-  %h2
-    = question.exam_item.question
+  .col-sm-12
+    %h2
+      = question.exam_item.question
 
   = simple_form_for(question, url: submit_answer_exam_result_item_path(question, exam_result: exam_result), method: :put, html: { id: "question_form" }, remote: true) do |f|
     %h3
       .field
-        = f.input :answer, as: :string, label: 'Your Answer'
+        .col-sm-2
+          = f.label :answer, "Your Answer:"
+        .col-sm-10
+          = f.input :answer, as: :string, label: false
     #submit_answer_btn
-      .actions
-        = f.button :submit, "Save"
+      .col-sm-12
+        .actions
+          = f.button :submit, "Submit Answer"
 
 - else
-  = "Exam Finished"
-  %br/
-  = "Your score: #{exam_result.score.to_i} / #{exam_result.total_score}"
+  %h2
+    = "Quiz Finished"
+    %br/
+    = "Your score: #{exam_result.score.to_i} / #{exam_result.total_score}"
+
+  .row
+    .col-sm-12
+      = link_to "Back", exams_path, class: "btn btn-primary"

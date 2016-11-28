@@ -1,24 +1,21 @@
-%h1 Listing exams
-
-%table
+%h1 Quiz List
+%table.table.table-bordered
   %thead
     %tr
-      %th Name
-      %th
-      %th
-      %th
-      %th
+      %th Quiz Name
+      %th Actions
 
   %tbody
     - @exams.each do |exam|
       %tr
         %td= exam.name
-        %td= link_to 'Show', exam
-        %td= link_to 'Edit', edit_exam_path(exam)
-        %td= link_to 'Destroy', exam, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        - if exam.exam_items.any?
-          %td= link_to 'Take Exam', take_exam_exam_results_path(exam_id: exam.id)
+        %td
+          = link_to 'Show', exam, class: "btn btn-primary"
+          = link_to 'Edit', edit_exam_path(exam), class: "btn btn-primary"
+          = link_to 'Destroy', exam, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
+          - if exam.exam_items.any?
+            = link_to 'Take Quiz', take_exam_exam_results_path(exam_id: exam.id), class: "btn btn-primary"
 
 %br
 
-= link_to 'New Exam', new_exam_path
+= link_to 'Add New Quiz', new_exam_path, class: "btn btn-primary"

@@ -1,25 +1,39 @@
 = simple_nested_form_for @exam do |f|
   = f.error_notification
 
-  .field
-    = f.input :name, label: "Exam Name"
-  %br/
-
+  .row
+    .col-sm-2
+      = f.label :name, "Quiz Name"
+    .col-sm-10
+      = f.input :name, label: false
+  %hr
   = f.fields_for :exam_items do |ei|
-    .field
-      = ei.input :question, label: "Question"
-      = ei.link_to_remove do
-        = "Delete question"
-      %br/
-      = ei.label "Answers", required: true
-      = ei.fields_for :answers do |a|
-        = a.input :content, label: false
-        = a.link_to_remove do
-          = "Delete answer"
-      = ei.link_to_add "Add new answer", :answers
-      %hr
+    .row
+      .col-sm-2
+        = ei.label :question, "Question"
+      .col-sm-10
+        .row
+          .col-sm-8
+            = ei.input :question, label: false
+          .col-sm-2
+            = ei.link_to_remove "Delete question", class: "btn btn-primary"
+    .row
+      .col-sm-2
+        = ei.label "Answers", required: true
+      .col-sm-10
+        = ei.fields_for :answers do |a|
+          .row
+            .col-sm-8
+              = a.input :content, label: false
+            .col-sm-2
+              = a.link_to_remove "Delete answer", class: "btn btn-primary"
+      .col-sm-2
+        = ei.link_to_add "Add new answer", :answers, class: "btn btn-primary"
+    %hr
+  = f.link_to_add "Add new question", :exam_items, class: "btn btn-primary"
 
-  = f.link_to_add "Add new question", :exam_items
-
+  %br/
+  %br/
   .actions
     = f.button :submit, "Save"
+    = link_to 'Back', exams_path, class: "btn btn-primary"
