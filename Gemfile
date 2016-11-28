@@ -61,3 +61,6 @@ gem "haml-rails", "~> 0.9"
 
 # Styling
 gem 'bootstrap'
+
+# Number to words
+gem 'numbers_and_words'
